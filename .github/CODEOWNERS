@@ -1,0 +1,16 @@
+# CODEOWNERS for terraform-aws-security-hub
+#
+# This module enables/configures AWS Security Hub (account enrollment,
+# standards subscriptions, cross-region aggregation, findings
+# notifications). Security has equity in every file, so the default rule
+# routes review to both cloud-leads and security.
+#
+# Per Module-Repo Plan v1.3 §16 governance.
+
+# Default: every change requires both teams to approve.
+*                          @devotica-labs/cloud-leads @devotica-labs/security
+
+# CI/CD pipelines have privileged OIDC role assumption — security is
+# explicitly an owner so a config slip cannot bypass review.
+/.github/                  @devotica-labs/cloud-leads @devotica-labs/security
+/.github/workflows/        @devotica-labs/cloud-leads @devotica-labs/security

@@ -1,0 +1,19 @@
+terraform-aws-security-hub
+Copyright 2026 Devotica Labs
+
+This product includes software developed at Devotica Labs
+(https://github.com/devotica-labs).
+
+================================================================================
+
+This module is an original Devotica Labs implementation, not derived from
+a specific third-party module. It wraps AWS Security Hub account
+enrollment, standards subscriptions, cross-region finding aggregation,
+and EventBridge-based findings notifications, following the same
+fintech-safe defaults and mandatory-tagging conventions established
+across this catalog (see terraform-aws-vpc, terraform-aws-sqs).
+
+================================================================================
+
+Third-party components and their licenses are documented in CHANGELOG.md
+and inline where used.
