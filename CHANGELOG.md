@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.0 (2026-08-03)
+
+
+### Features
+
+* initial Security Hub module — account enablement, standards subscriptions, cross-region aggregation, findings notifications ([c5c4f19](https://github.com/devotica-labs/terraform-aws-security-hub/commit/c5c4f19b90e3283534cd6c92b95620333017abf4))
+
 ## [Unreleased]
 
 ### Features
