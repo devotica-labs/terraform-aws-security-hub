@@ -6,9 +6,9 @@
 resource "aws_securityhub_account" "this" {
   count = var.manage_account ? 1 : 0
 
-  auto_enable_controls = var.auto_enable_controls
+  auto_enable_controls      = var.auto_enable_controls
   control_finding_generator = var.control_finding_generator
-  enable_default_standards = false # standards are managed explicitly below
+  enable_default_standards  = false # standards are managed explicitly below
 }
 
 # ---------------------------------------------------------------------------
@@ -31,8 +31,13 @@ resource "aws_securityhub_finding_aggregator" "this" {
   count = var.enable_finding_aggregator ? 1 : 0
 
   linking_mode = var.region_linking_mode
-  specified_regions = var.region_linking_mode == "SPECIFIED_REGIONS" ? var.linked_regions : null
-  unlinked_regions = var.region_linking_mode == "ALL_REGIONS_EXCEPT_SPECIFIED" ? var.linked_regions : null
+
+  # The AWS provider has a single specified_regions argument reused for both
+  # "regions to include" (SPECIFIED_REGIONS) and "regions to exclude"
+  # (ALL_REGIONS_EXCEPT_SPECIFIED) -- there is no separate field for each.
+  # It must be entirely omitted (null) for ALL_REGIONS, or the API rejects
+  # the request.
+  specified_regions = var.region_linking_mode == "ALL_REGIONS" ? null : var.linked_regions
 
   depends_on = [aws_securityhub_account.this]
 }
