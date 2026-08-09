@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/devotica-labs/terraform-aws-security-hub/compare/v0.1.0...v0.1.1) (2026-08-09)
+
+
+### Bug Fixes
+
+* aws_securityhub_finding_aggregator has no unlinked_regions argument ([6a1a608](https://github.com/devotica-labs/terraform-aws-security-hub/commit/6a1a608f3995cfc1b9334fb95c5704b7426924b5))
+
 ## 0.1.0 (2026-08-03)
 
 
